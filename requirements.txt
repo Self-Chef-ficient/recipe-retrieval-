@@ -1,0 +1,17 @@
+numpy
+scipy
+matplotlib
+torch
+torchvision
+Pillow
+tqdm
+lmdb
+pandas
+click
+colorama
+Flask
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
