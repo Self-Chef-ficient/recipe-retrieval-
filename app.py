@@ -1,3 +1,4 @@
+from flask_cors import CORS
 import time
 import random
 from flask import Flask, request, render_template,redirect,session
