@@ -1,7 +1,11 @@
 # recipe-retrieval-api
 
-Build docker image using the command docker build -t <name> . 
+## Building Docker image
 
-Run the docker image using the command docker run 
-  
-Do a post call on localhost:5000/getRecipe by passing an image to get recipes
+docker build -t recipe-retrieval .
+
+## Run docker image
+
+docker run -d recipe-retrieval 
+
+Do a POST request on 127.0.0.1:5000/getRecipe with data in below format to get a response
