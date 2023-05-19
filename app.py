@@ -1,7 +1,7 @@
 from flask_cors import CORS
 import time
 import random
-from flask import Flask, request, render_template,redirect,session
+from flask import Flask, request
 import os
 import matplotlib.pyplot as plt
 import torch
@@ -19,12 +19,13 @@ from io import BytesIO
 
 app = Flask(__name__)
 app.secret_key=os.urandom(24)
+CORS(app)
 
 
 @app.route('/getRecipe', methods=['GET', 'POST'])
 def getRecipe():   
 	data_dir = 'data'
-	use_gpu = False
+	use_gpu = True
 	device = torch.device('cuda' if torch.cuda.is_available() and use_gpu else 'cpu')
 	map_loc = None if torch.cuda.is_available() and use_gpu else 'cpu' 
 	ingrs_vocab = pickle.load(open(os.path.join(data_dir, 'ingr_vocab.pkl'), 'rb'))
@@ -58,8 +59,7 @@ def getRecipe():
 	numgens = len(greedy)
 	image_folder = os.path.join(data_dir, 'demo_imgs')
 	if request.method == 'GET':
-		return render_template('rrt.html', value='hi')
-		#return "Working hit the post method"
+		return "Working hit the post method"
 	if request.method == 'POST':
 		print(request.files)
 		if 'file' not in request.files:

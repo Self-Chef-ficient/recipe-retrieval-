@@ -2,8 +2,6 @@ flask-cors
 numpy
 scipy
 matplotlib
-torch
-torchvision
 Pillow
 tqdm
 lmdb
